@@ -38,3 +38,28 @@ const revealOnScroll = () => {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll(); // Run on load
+
+// Typing animations for Hero
+const text = ["Cybersecurity Enthusiast.", "Full-Stack Dev.", "Java + React Coder.", "C++"];
+let i = 0, j = 0, currentText = "", isDeleting = false;
+
+function type() {
+    currentText = text[i];
+    let display = isDeleting
+    ? currentText.substring(0, j--)
+    : currentText.substring(0, j++);
+
+    document.getElementById("typed-text").innerText = display;
+
+    if (!isDeleting && j === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, 1200);
+    } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % text.length;
+        setTimeout(type, 300);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 300);
+    }
+}
+type();
