@@ -178,3 +178,19 @@
   .float-up:hover {
     transform: translateY(-6px);
   }
+
+  .button.pulse {
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+    }
+  }
