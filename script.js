@@ -63,3 +63,14 @@ function type() {
     }
 }
 type();
+
+// Time-based Hero Greeting
+const heroTitle = document.querySelector('hero-title-animate');
+if (heroTitle) {
+    const hour = new Date().getHours();
+    let greeting = "Welcome to my portfolio";
+    if (hour < 12) greeting = "Good Morning! 👋";
+    else if (hour < 18) greeting = "Good afternoon! 🌞";
+    else greeting = "Good evening! 🌙";
+    heroTitle.textContent = greeting;
+}
